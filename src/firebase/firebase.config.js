@@ -1,18 +1,20 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_APIKEY,
-  authDomain: import.meta.env.VITE_AUTHDOMAIN,
-  projectId: import.meta.env.VITE_PROJECTID,
-  storageBucket: import.meta.env.VITE_STORAGEBUCKET,
-  messagingSenderId: import.meta.env.VITE_MESSAGINGSENDERID,
-  appId: import.meta.env.VITE_APPID,
+  apiKey: "AIzaSyAIAgsYKPYChrXHCY1GdHEEWUhKbO1KcCk",
+  authDomain: "dragon-news-project-fea4d.firebaseapp.com",
+  projectId: "dragon-news-project-fea4d",
+  storageBucket: "dragon-news-project-fea4d.appspot.com",
+  messagingSenderId: "932898724688",
+  appId: "1:932898724688:web:1bc9ba4b36c389b313aa55"
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-export default app;
+const auth = getAuth(app);
+export default auth;
