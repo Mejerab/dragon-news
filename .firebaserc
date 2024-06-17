@@ -1,5 +1,9 @@
 {
   "projects": {
-    "default": "react-dragon-news-auth"
-  }
+    "default": "react-dragon-news-auth",
+    "dist": "dragon-news-project-fea4d"
+  },
+  "targets": {},
+  "etags": {},
+  "dataconnectEmulatorConfig": {}
 }
