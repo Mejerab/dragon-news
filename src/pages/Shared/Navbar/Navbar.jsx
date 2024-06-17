@@ -8,8 +8,12 @@ const Navbar = () => {
 
     const handleSignOut = () => {
         logOut()
-            .then()
-            .catch()
+            .then(() => {
+                console.log('Logged out successfully');
+            })
+            .catch(error => {
+                console.error(error);
+            })
     }
 
     const navLinks = <>
@@ -46,7 +50,7 @@ const Navbar = () => {
                 </label>
                 {
                     user ?
-                        <button onClick={handleSignOut} className="btn">Sign Out</button>
+                        <button onClick={handleSignOut} className="btn">Sign out</button>
                         :
                         <Link to="/login">
                             <button className="btn">Login</button>

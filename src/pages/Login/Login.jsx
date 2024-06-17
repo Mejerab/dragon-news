@@ -5,46 +5,42 @@ import { AuthContext } from "../../providers/AuthProvider";
 
 
 const Login = () => {
-    const { signIn } = useContext(AuthContext);
+    const { logIn } = useContext(AuthContext);
     const location = useLocation();
+    console.log('added', location);
     const navigate = useNavigate();
-    console.log('location i n the login page', location)
-
+    console.log(location);
     const handleLogin = e => {
         e.preventDefault();
-        console.log(e.currentTarget);
         const form = new FormData(e.currentTarget);
         const email = form.get('email');
         const password = form.get('password');
-        console.log(email, password);
-        signIn(email, password)
-            .then(result => {
-                console.log(result.user);
-
-                // navigate after login
-                navigate(location?.state ? location.state : '/');
-
-            })
-            .catch(error => {
-                console.error(error);
-            })
+        logIn(email, password)
+        .then(result =>{
+            const user = result.user;
+            console.log(user);
+            // Navigate
+            navigate(location?.state ? location.state : '/')
+        })
+        .catch(error =>{
+            console.error(error);
+        })
     }
-
     return (
         <div>
             <Navbar></Navbar>
-            <div>
-                <h2 className="text-3xl my-10 text-center">Please Login</h2>
+            <div className="w-[752px] bg-base-200 mx-auto mt-5 rounded">
+                <h2 className="text-2xl py-10 font-semibold border-b text-center text-[#403F3F] mx-16">Login your account</h2>
                 <form onSubmit={handleLogin} className=" md:w-3/4 lg:w-1/2 mx-auto">
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text">Email</span>
+                            <span className="label-text font-semibold ">Email</span>
                         </label>
                         <input type="email" required name="email" placeholder="Email" className="input input-bordered" />
                     </div>
-                    <div className="form-control">
+                    <div className="form-control ">
                         <label className="label">
-                            <span className="label-text">Password</span>
+                            <span className="label-text font-semibold">Password</span>
                         </label>
                         <input type="password" required name="password" placeholder="Password" className="input input-bordered" />
                         <label className="label">
@@ -52,10 +48,10 @@ const Login = () => {
                         </label>
                     </div>
                     <div className="form-control mt-6">
-                        <button className="btn btn-primary">Login</button>
+                        <button className="btn bg-[#403F3F] text-white">Login</button>
                     </div>
                 </form>
-                <p className="text-center mt-4">Do not have an account <Link className="text-blue-600 font-bold" to="/register">Register</Link></p>
+                <p className="text-center mt-4">Do not have an account <Link className="text-[#F75B5F] font-bold" to="/register">Register</Link></p>
             </div>
 
         </div>

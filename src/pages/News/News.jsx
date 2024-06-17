@@ -5,22 +5,19 @@ import Navbar from "../Shared/Navbar/Navbar";
 
 
 const News = () => {
-    const {id} = useParams();
+    const { id } = useParams();
     return (
         <div>
             <Header></Header>
             <Navbar></Navbar>
-            <div className="grid md:grid-cols-4">
-                <div className="col-span-3">
-                    <h2 className="text-5xl">News Detail</h2>
-                    <p>{id}</p>
-
-                </div>
+            <div className="flex justify-between">
                 <div>
-                    <RightSideNav></RightSideNav>
+                    <h2 className="text-6xl">News Details</h2>
+                    <p>{id}</p>
                 </div>
+                <RightSideNav></RightSideNav>
             </div>
-            
+
         </div>
     );
 };
